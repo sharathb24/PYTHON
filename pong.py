@@ -1,7 +1,11 @@
+# creating a pong game in python using turtle
+
 # importing the turtle module
 import turtle
 # importing the turtle module
 import time
+# importing the winsound module
+import winsound
 
 # creating the screen of the pong
 wn = turtle.Screen()
@@ -82,6 +86,7 @@ def pad2_down():
 
 # the window listens to the functions
 wn.listen()
+# the window listens the key clicked
 wn.onkeypress(pad1_up, 'w')
 wn.onkeypress(pad1_down, 's')
 wn.onkeypress(pad2_up, 'Up')
@@ -89,9 +94,9 @@ wn.onkeypress(pad2_down, 'Down')
 
 
 while True:
+
+    # updating the screen every time
     wn.update()
-
-
 
     # making the ball to move
     ball.setx(ball.xcor() + ball.dx)
@@ -134,6 +139,12 @@ while True:
     # colliding the ball with paddles in the pong game
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < pad2.ycor() + 40 and ball.ycor() > pad2.ycor() - 40):
         ball.dx *= -1
+        # adding sound when the paddle hits the ball
+        winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
+
+
     # colliding the ball with paddles in the pong game  
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < pad1.ycor() + 40 and ball.ycor() > pad1.ycor() - 40):
         ball.dx *= -1
+        # adding sound when the paddle hits the ball
+        winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
