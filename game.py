@@ -229,3 +229,4 @@ while True:
         sc.clear()
         # this writes whenever a player scores a goal and displays the score on the screenboard
         sc.write('Player one: {}         Player two: {}'.format(score_1, score_2), align = 'center', font = ('consolas', 24, 'normal'))
+        
